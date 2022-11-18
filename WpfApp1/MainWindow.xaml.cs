@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfApp1
 {
@@ -20,20 +21,21 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        ViewModel vm = new ViewModel();
+        TexteTransformationService tts = new TexteTransformationService();
         public MainWindow()
         {
             InitializeComponent();
-            vm.TransformationTermine += AfficheTransformation;
+            //vm.TransformationTermine += AfficheTransformation;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            vm.Transformation(TextEntry.Text);
+            //.Transformation(TextEntry.Text);
+            TextExit.Text = tts.Transforme(TextEntry.Text);
         }
-        private void AfficheTransformation(string? text)
-        {
-            TextExit.Text = text;
-        }
+        //private void AfficheTransformation(string? text)
+        //{
+        //    TextExit.Text = text;
+        //}
     }
 }
