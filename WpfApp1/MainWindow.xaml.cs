@@ -20,9 +20,20 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel vm = new ViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            vm.TransformationTermine += AfficheTransformation;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Transformation(TextEntry.Text);
+        }
+        private void AfficheTransformation(string? text)
+        {
+            TextExit.Text = text;
         }
     }
 }
